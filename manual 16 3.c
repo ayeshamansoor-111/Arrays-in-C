@@ -1,0 +1,33 @@
+#include <stdio.h> 
+void transpose(float mat[3][3], float T[3][3]) {
+     for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) { 
+    T[i][j] = mat[j][i];
+    }
+    } 
+}
+int main() {
+    float mat[3][3], T[3][3]; 
+    float det; 
+    printf("Enter 3x3 matrix:"); 
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) { 
+            printf("Enter element[%d][%d]: ", i+1, j+1); 
+            scanf("%f", &mat[i][j]); 
+        }
+    }
+    printf("\nMatrix A = \n"); 
+     for (int i = 0; i < 3; i++) {
+         printf("|"); 
+         for (int j = 0; j < 3; j++) { 
+             printf(" %.1f ", mat[i][j]); }
+             printf("|\n"); } 
+             transpose(mat, T); 
+             printf("\nTanspose of A =  \n"); 
+               for (int i = 0; i < 3; i++) {
+         printf("|"); 
+         for (int j = 0; j < 3; j++) { 
+             printf(" %.1f ", T[i][j]); }
+             printf("|\n"); }
+             return 0; 
+         } 

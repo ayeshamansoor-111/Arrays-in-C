@@ -1,0 +1,19 @@
+#include <stdio.h> 
+int main() {
+    int mat[2][2]; 
+    printf("Define Matrix A (2x2) "); 
+    printf("Enter a11 >>  "); 
+    scanf("%d", &mat[0][0]); 
+    printf("Enter a12 >>  "); 
+    scanf("%d", &mat[0][1]); 
+    printf("Enter a21 >>  ");
+    scanf("%d", &mat[1][0]); 
+    printf("Enter a22 >>  "); 
+    scanf("%d", &mat[1][1]); 
+    printf("A = |a11 a12| =  |%d   %d|", mat[0][0], mat[0][1]); 
+    printf("\n    |a11 a12| =  |%d   %d|", mat[1][0], mat[1][1]); 
+     printf("\nDeterminant of A");  
+     int det = mat[0][0] * mat[1][1] - mat[0][1] * mat[1][0]; 
+     printf("\ndet (A) = %d", det); 
+     return 0; 
+}
