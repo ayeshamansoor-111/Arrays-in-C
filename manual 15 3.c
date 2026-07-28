@@ -1,0 +1,13 @@
+#include <stdio.h> 
+int main () {
+    int month; 
+    int days_per_month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; 
+    printf("Enter the month number >>  ");
+    scanf("%d", &month); 
+    if (month < 1 || month > 12) {
+        printf("Invalid Input!"); 
+    } else {
+        printf("This month has %d days.", days_per_month[month - 1]); }
+    return 0; 
+
+}

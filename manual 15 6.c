@@ -1,0 +1,78 @@
+#include <stdio.h> 
+int main() { 
+    int marks[10][5] = {
+    {17, 44, 63, 33, 70},
+    {71, 68, 81, 72, 85},
+    {90, 92, 94, 88, 98},
+    {21, 55, 77, 48, 80},
+    {60, 63, 53, 98, 71},
+    {44, 62, 49, 77, 98},
+    {11, 34, 12, 0, 67}, 
+    {91, 90, 86, 81, 99},
+    {0, 13, 50, 17, 39},
+    {81, 90, 99, 100, 89},  
+    }; 
+    char subject [5][15]= {"English", "Algebra", "Psychology", "Mechanics", "Medicine"}; 
+    char opt; 
+    int i, j, roll, sub; 
+    printf("Which detail you want (Student/Subject)\n"); 
+    printf("Press 's' for subject and 'r' for student >>  ");
+    scanf(" %c", &opt); 
+    if(opt == 'r' || opt == 'R') {
+        printf("Enter the roll number of the student >>   "); 
+        scanf("%d", &roll); 
+        roll = roll - 1; 
+        if (roll < 0 || roll >= 10) {
+            printf("Invalid roll number!"); 
+            return 0; 
+        }
+        int sum = 0; 
+        int max = marks[roll][0]; 
+        int min = marks[roll][0]; 
+        int maxSub = 0; 
+        int minSub = 0; 
+        for (j = 0; j < 5; j++) { 
+        sum += marks[roll][j]; 
+        if (marks[roll][j] > max) {
+            max = marks[roll][j]; 
+            maxSub = j; 
+        }
+         if (marks[roll][j] < min) {
+            min = marks[roll][j]; 
+            minSub = j; 
+    }
+}
+float average = (float)sum / 5; 
+printf("Roll Number %d has obtained average marks %.2f\n", roll + 1, average); 
+printf("Roll Number %d obtained highest marks is %d in %s\n", roll + 1, max, subject[maxSub]);  
+printf("Roll Number %d obtained lowest marks is %d in %s\n", roll + 1, min, subject[minSub]);  
+} else if(opt == 's' || opt == 'S') {
+printf("Which subject detail do you want?\n"); 
+printf("Press 0, 1, 2, 3 or 4 for English, Algebra, Psychology, Mechanics or Medicine\n"); 
+scanf("%d", &sub); 
+if (sub < 0 || sub >= 5) {
+    printf("Invalid Input!\n"); 
+    return 0; 
+}
+int sum = 0, max = marks[0][sub], min = marks[0][sub]; 
+int Maxs = 0, Mins =0; 
+for (i = 0; i < 10; i++) {
+    sum += marks[i][sub]; 
+ if (marks[i][sub] > max) {
+            max = marks[i][sub]; 
+            Maxs = i; 
+        }
+         if (marks[i][sub] < min) {
+            min = marks[i][sub]; 
+            Mins = i; 
+         } 
+        } 
+        float avg = (float)sum / 10; 
+        printf("The average marks in %s is %.2f\n", subject[sub], avg); 
+        printf("Highest marks are %d obtained by roll number %d\n", max, Maxs + 1); 
+        printf("Lowest marks are %d obtained by roll number %d\n", min, Mins + 1); 
+    } else {
+        printf("Invalid Input!"); 
+    }
+    return 0; 
+} 

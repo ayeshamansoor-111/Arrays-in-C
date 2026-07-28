@@ -1,0 +1,46 @@
+#include <stdio.h> 
+float computeAverage(int grades[], int a); 
+int findHighest(int marks[], int b); 
+int findLowest(int arr[], int d); 
+float computeAverage(int grades[], int a) {
+    int sum = 0; 
+    for (int i = 0; i < a; i++) {
+    sum += grades[i]; 
+    }
+    return (float)sum / a; 
+}
+int findHighest(int marks[], int b) {
+    int max = marks[0]; 
+    for (int i = 0; i < b; i++) {
+    if (marks[i] > max) {
+        max = marks[i]; 
+    } } 
+   return max; 
+} 
+    int findLowest(int arr[], int d) {
+        int min = arr[0]; 
+        for (int i = 1; i < d; i++) {
+         if (arr[i] < min) {
+        min = arr[i]; 
+    }
+    }
+   return min;
+    } 
+    int main() {
+        int n, result = 0; 
+        printf("Enter the total number of students >>  "); 
+        scanf("%d", &n); 
+        int mark[n]; 
+        for (int i = 0; i < n; i++) {
+            printf("Enter the marks of roll number %d >>  ", i + 1); 
+            scanf("%d", &mark[i]); 
+            if (mark[i] <= 40) {
+                result++; 
+            }
+        } 
+             printf("Failing students = %d\n", result); 
+            printf("The Average marks are equal to %.2f\n", computeAverage(mark, n)); 
+            printf("Highest marks = %d\n", findHighest(mark, n)); 
+             printf("Lowest marks = %d\n", findLowest(mark, n)); 
+            return 0; 
+    }
